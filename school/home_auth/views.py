@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-=======
-
-# Create your views here.
->>>>>>> 572dcd3e678f87c8c198a94e935ebf823858346c
 from django.shortcuts import render, redirect 
 from django.contrib.auth import authenticate, login, logout 
 from django.contrib import messages 
 from .models import CustomUser 
  
-<<<<<<< HEAD
 # Create your views here.
-=======
->>>>>>> 572dcd3e678f87c8c198a94e935ebf823858346c
 def signup_view(request): 
     if request.method == 'POST': 
         first_name = request.POST['first_name'] 
@@ -28,12 +20,8 @@ def signup_view(request):
             last_name=last_name, 
             password=password, 
         ) 
-<<<<<<< HEAD
  
         # Assigner le rôle
-=======
-
->>>>>>> 572dcd3e678f87c8c198a94e935ebf823858346c
         if role == 'student': 
             user.is_student = True 
         elif role == 'teacher': 
@@ -45,12 +33,8 @@ def signup_view(request):
         login(request, user) 
         messages.success(request, 'Signup successful!') 
         return redirect('index') 
-<<<<<<< HEAD
     return render(request, 'authentication/register.html')
 
-=======
-    return render(request, 'authentication/register.html') 
->>>>>>> 572dcd3e678f87c8c198a94e935ebf823858346c
 
 def login_view(request): 
     if request.method == 'POST': 
@@ -79,8 +63,4 @@ def login_view(request):
 def logout_view(request): 
     logout(request) 
     messages.success(request, 'You have been logged out.') 
-<<<<<<< HEAD
     return redirect('index')
-=======
-    return redirect('index') 
->>>>>>> 572dcd3e678f87c8c198a94e935ebf823858346c
