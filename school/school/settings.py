@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'faculty',
     'student',
+    'home_auth',
 ]
 
 MIDDLEWARE = [
@@ -82,6 +83,12 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = 'home_auth.CustomUser' 
+AUTHENTICATION_BACKENDS = ( 
+    'django.contrib.auth.backends.ModelBackend',  # Backend par défaut 
+) 
+LOGIN_URL = '/authentication/login/' 
+LOGIN_REDIRECT_URL = '/dashboard/'
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
