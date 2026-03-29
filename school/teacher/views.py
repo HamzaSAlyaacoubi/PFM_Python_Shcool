@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Teacher
 from departement.models import Departement
+from subject.models import Subject
 from django.contrib import messages
 
 
@@ -24,7 +25,10 @@ def add_teacher(request):
         else :
             departement = None
         
-        Teacher.objects.create( 
+        subjects_ids = request.POST.getlist('subject_id')
+        subjects = Subject.objects.filter(id__in=subjects_ids)
+                
+        teacher = Teacher.objects.create( 
             first_name=first_name, 
             last_name=last_name, 
             gender=gender, 
@@ -34,11 +38,14 @@ def add_teacher(request):
             departement= departement, 
             teacher_image=teacher_image, 
         )
+        
+        teacher.subjects.set(subjects)
         messages.success(request, 'Teacher added Successfully') 
         return redirect('add_teacher') 
     else :
         departements_list = Departement.objects.all()
-        context = {'departements_list': departements_list}
+        subjects_list = Subject.objects.all()
+        context = {'departements_list': departements_list,'subjects_list':subjects_list}
         return render(request, 'teachers/add-teacher.html', context)
 
 def teacher_list(request):
@@ -48,13 +55,15 @@ def teacher_list(request):
 
 def view_teacher(request, teacher_id):
     teacher = Teacher.objects.get(id = teacher_id)
-    context = {'teacher': teacher}
+    teacher_subjects = teacher.subjects.all()
+    context = {'teacher': teacher, 'teacher_subjects': teacher_subjects}
     return render(request, 'teachers/teacher-details.html', context)
 
 def edit_teacher(request, teacher_id): 
     teacher = Teacher.objects.get(id = teacher_id)
     departements_list = Departement.objects.all()
-    context = {'departements_list': departements_list, 'teacher' : teacher}
+    subjects_list = Subject.objects.all()
+    context = {'departements_list': departements_list, 'teacher' : teacher, 'subjects_list':subjects_list}
 
     if request.method == 'POST': 
         teacher.first_name = request.POST.get('first_name') 
@@ -70,6 +79,10 @@ def edit_teacher(request, teacher_id):
             teacher.departement = Departement.objects.get(id = departement_id)
         else : 
             teacher.departement = None
+            
+        subjects_ids = request.POST.getlist('subject_id')
+        subjects = Subject.objects.filter(id__in=subjects_ids)
+        teacher.subjects.set(subjects)
 
         if request.FILES.get('teacher_image'):
             teacher.teacher_image = request.FILES.get('teacher_image')

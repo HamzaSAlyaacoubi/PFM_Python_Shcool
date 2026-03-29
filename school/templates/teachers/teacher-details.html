@@ -53,6 +53,12 @@
 <span class="title-span">DOB : </span>
 <span class="info-span">{{teacher.date_of_birth}}</span>
 </li>
+<li>
+<span class="title-span">Subjects : </span>
+{% for subject in teacher_subjects %}
+<span class="info-span"> {{subject.name }} {% if not forloop.last %}, {% endif %}</span>
+{% endfor %}
+</li>
 </ul>
 </div>
 </div>

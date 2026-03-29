@@ -74,6 +74,16 @@
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="form-group">
+                                       <label>Subjects</label>
+                                       <select class="form-control" multiple name="subject_id" size="1">
+                                          {% for subject in subjects_list %}
+                                          <option value="{{subject.id}}" {% if subject in teacher.subjects.all %}selected{% endif %}>{{subject.name}}</option>
+                                          {% endfor %}
+                                       </select>
+                                    </div>
+                                 </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
                                         <label>Teacher Image</label>
                                         <input type="file" name="teacher_image" class="form-control">
                                         <small>Current Image:</small>

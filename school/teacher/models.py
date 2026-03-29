@@ -1,5 +1,6 @@
 from django.db import models
 from departement.models import Departement
+from subject.models import Subject
 
 # Create your models here.
 class Teacher(models.Model):
@@ -19,5 +20,13 @@ class Teacher(models.Model):
         related_name='teachers'
     )
     
-    def __srt__(self):
+    subjects = models.ManyToManyField(
+        Subject,
+        blank=True,
+        related_name='teachers'
+    )
+    
+    
+    
+    def __str__(self):
         return f"{self.first_name} {self.last_name}"

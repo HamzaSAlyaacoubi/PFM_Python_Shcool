@@ -8,5 +8,5 @@ class Departement(models.Model):
     description = models.TextField(blank=True, null=True)
     created_at = models.DateField(auto_now_add=True)
     
-    def __srt__(self):
+    def __str__(self):
         return f"{self.name} ({self.code})"
