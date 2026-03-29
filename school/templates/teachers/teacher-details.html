@@ -25,33 +25,33 @@
 <h4>About Me</h4>
 <div class="media mt-3">
 <!-- Replace your line 27 with this: -->
-<img src="{% if student.student_image %}{{ student.student_image.url }}{% else %}/templates/students/user.png{% endif %}" class="mr-3" alt="Teacher Image">
+<img src="{% if teacher.teacher_image %}{{ teacher.teacher_image.url }}{% else %}/templates/teachers/user.png{% endif %}" class="mr-3" alt="Teacher Image">
 
 <div class="media-body">
 <ul>
 <li>
 <span class="title-span">Full Name : </span>
-<span class="info-span">{{ student.first_name}}</span>
+<span class="info-span">{{ teacher.first_name}}</span>
 </li>
 <li>
 <span class="title-span">Department : </span>
-<span class="info-span">{{student.section}}</span>
+<span class="info-span">{{teacher.departement.name}}</span>
 </li>
 <li>
 <span class="title-span">Mobile : </span>
-<span class="info-span">{{student.mobile_number}}</span>
+<span class="info-span">{{teacher.mobile_number}}</span>
 </li>
 <li>
 <span class="title-span">Email : </span>
-<span class="info-span"><a href="{{student.parent.father_email}}" class="__cf_email__" data-cfemail="7216131b010b32151f131b1e5c111d1f">[email&#160;protected]</a></span>
+<span class="info-span"><a href="{{teacher.email}}" class="__cf_email__" data-cfemail="7216131b010b32151f131b1e5c111d1f">[email&#160;protected]</a></span>
 </li>
 <li>
 <span class="title-span">Gender : </span>
-<span class="info-span">{{student.gender}}</span>
+<span class="info-span">{{teacher.gender}}</span>
 </li>
 <li>
 <span class="title-span">DOB : </span>
-<span class="info-span">{{student.date_of_birth}}</span>
+<span class="info-span">{{teacher.date_of_birth}}</span>
 </li>
 </ul>
 </div>
@@ -141,7 +141,7 @@
 <h5>Certificates</h5>
 <p class="mt-3">1st Prise in Running Competition.</p>
 <p>Lorem Ipsum is simply dummy text.</p>
-<p>Won overall star student in higher secondary education.</p>
+<p>Won overall star teacher in higher secondary education.</p>
 <p>Lorem Ipsum is simply dummy text.</p>
 </div>
 </div>
@@ -203,6 +203,6 @@
 <script src="{%static 'assets/js/script.js' %}"></script>
 </body>
 
-<!-- Mirrored from preschool.dreamguystech.com/html-template/student-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:11:50 GMT -->
+<!-- Mirrored from preschool.dreamguystech.com/html-template/teacher-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:11:50 GMT -->
 </html>
 {% endblock %}

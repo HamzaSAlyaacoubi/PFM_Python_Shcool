@@ -22,8 +22,8 @@ def add_departement(request):
         return render(request, 'departement/add-departement.html')
 
 def departement_list(request):
-    departement_list = Departement.objects.all()
-    context = {'departement_list' : departement_list}
+    departements_list = Departement.objects.all()
+    context = {'departements_list' : departements_list}
     return render(request, 'departement/departements.html', context)
 
 def edit_departement(request, departement_id): 

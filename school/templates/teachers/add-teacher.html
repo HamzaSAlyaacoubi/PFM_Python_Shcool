@@ -77,6 +77,17 @@
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
+                                       <label>Departement</label>
+                                       <select class="form-control" name="departement_id" required>
+                                          <option value="">Select Departement</option>
+                                          {% for departement in departements_list %}
+                                          <option value="{{departement.id}}">{{departement.name}}</option>
+                                          {% endfor %}
+                                       </select>
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-6">
+                                    <div class="form-group">
                                        <label>Teacher Image</label>
                                        <input type="file" class="form-control" name="teacher_image">
                                     </div>
