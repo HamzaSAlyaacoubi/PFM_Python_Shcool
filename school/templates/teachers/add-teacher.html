@@ -39,12 +39,6 @@
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                       <label>Teacher Id</label>
-                                       <input type="text" class="form-control" name = "teacher_id" required>
-                                    </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
                                        <label>Gender</label>
                                        <select class="form-control" name="gender" required>
                                           <option value="">Select Gender</option>
@@ -78,7 +72,7 @@
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>Departement</label>
-                                       <select class="form-control" name="departement_id" required>
+                                       <select class="form-control" name="departement_id">
                                           <option value="">Select Departement</option>
                                           {% for departement in departements_list %}
                                           <option value="{{departement.id}}">{{departement.name}}</option>

@@ -38,11 +38,11 @@
                                  <tbody>
                                     {% for teacher in teacher_list %}
                                     <tr>
-                                       <td>{{ teacher.teacher_id}}</td>
+                                       <td>{{ teacher.id}}</td>
                                        <td>
                                           <h2 class="table-avatar">
-                                             {% comment %} <a href="{% url 'view_teacher' teacher.teacher_id %}" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ teacher.teacher_image ? teacher.teacher_image.url : '' }}" alt="User Image"></a> {% endcomment %}
-                                             <a href="{% url 'view_teacher' teacher.teacher_id %}">{{ teacher.first_name }} {{ teacher.last_name}}</a>
+                                             {% comment %} <a href="{% url 'view_teacher' teacher.id %}" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ teacher.teacher_image ? teacher.teacher_image.url : '' }}" alt="User Image"></a> {% endcomment %}
+                                             <a href="{% url 'view_teacher' teacher.id %}">{{ teacher.first_name }} {{ teacher.last_name}}</a>
                                           </h2>
                                        </td>
                                        <td>{{ teacher.date_of_birth|date:"d M Y" }}</td>
@@ -50,10 +50,10 @@
                                        <td>{{ teacher.departement.name }}</td>
                                        <td class="text-right">
                                           <div class="actions">
-                                             <a href="{% url 'edit_teacher' teacher.teacher_id %}" class="btn btn-sm bg-success-light mr-2">
+                                             <a href="{% url 'edit_teacher' teacher.id %}" class="btn btn-sm bg-success-light mr-2">
                                                  <i class="fas fa-pen"></i>
                                              </a>
-                                             <form action="{% url 'delete_teacher' teacher.teacher_id %}" method="POST" style="display:inline;">
+                                             <form action="{% url 'delete_teacher' teacher.id %}" method="POST" style="display:inline;">
                                                  {% csrf_token %}
                                                  <button type="submit" class="btn btn-sm bg-danger-light" onclick="return confirm('Are you sure you want to delete this teacher?');">
                                                      <i class="fas fa-trash"></i>

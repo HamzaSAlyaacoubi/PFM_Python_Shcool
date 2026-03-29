@@ -12,7 +12,6 @@ def add_teacher(request):
     if request.method == 'POST' :
         first_name = request.POST.get('first_name') 
         last_name = request.POST.get('last_name') 
-        teacher_id = request.POST.get('teacher_id') 
         gender = request.POST.get('gender') 
         date_of_birth = request.POST.get('date_of_birth') 
         joining_date = request.POST.get('joining_date') 
@@ -20,12 +19,14 @@ def add_teacher(request):
         teacher_image = request.FILES.get('teacher_image')
         
         departement_id = request.POST.get('departement_id')
-        departement = Departement.objects.get(id = departement_id)
+        if (departement_id):
+            departement = Departement.objects.get(id = departement_id)
+        else :
+            departement = None
         
         Teacher.objects.create( 
             first_name=first_name, 
             last_name=last_name, 
-            teacher_id=teacher_id, 
             gender=gender, 
             date_of_birth=date_of_birth, 
             joining_date=joining_date, 
@@ -46,19 +47,18 @@ def teacher_list(request):
     return render(request, 'teachers/teachers.html', context)
 
 def view_teacher(request, teacher_id):
-    teacher = Teacher.objects.get(teacher_id = teacher_id)
+    teacher = Teacher.objects.get(id = teacher_id)
     context = {'teacher': teacher}
     return render(request, 'teachers/teacher-details.html', context)
 
 def edit_teacher(request, teacher_id): 
-    teacher = Teacher.objects.get(teacher_id = teacher_id)
+    teacher = Teacher.objects.get(id = teacher_id)
     departements_list = Departement.objects.all()
     context = {'departements_list': departements_list, 'teacher' : teacher}
 
     if request.method == 'POST': 
         teacher.first_name = request.POST.get('first_name') 
         teacher.last_name = request.POST.get('last_name') 
-        teacher.teacher_id = request.POST.get('teacher_id') 
         teacher.gender = request.POST.get('gender') 
         teacher.date_of_birth = request.POST.get('date_of_birth') 
         teacher.joining_date = request.POST.get('joining_date') 
@@ -66,7 +66,10 @@ def edit_teacher(request, teacher_id):
         teacher.teacher_image = request.FILES.get('teacher_image') 
         
         departement_id = request.POST.get('departement_id')
-        teacher.departement = Departement.objects.get(id = departement_id)
+        if (departement_id):
+            teacher.departement = Departement.objects.get(id = departement_id)
+        else : 
+            teacher.departement = None
 
         if request.FILES.get('teacher_image'):
             teacher.teacher_image = request.FILES.get('teacher_image')
@@ -79,7 +82,7 @@ def edit_teacher(request, teacher_id):
         return render(request, 'teachers/edit-teacher.html', context)
     
 def delete_teacher(request, teacher_id):
-    teacher = Teacher.objects.get(teacher_id = teacher_id)
+    teacher = Teacher.objects.get(id = teacher_id)
     if request.method == 'POST':
         teacher.delete()
         return redirect('teacher_list')
