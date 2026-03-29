@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse 
 from .models import Student, Parent 
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseForbidden
 
  
 def student_list(request): 
@@ -123,3 +125,15 @@ def delete_student(request, student_id):
     if request.method == 'POST':
         student.delete()
         return redirect('student_list')
+
+
+def student_profile_view(request):
+    user = request.user
+
+    # Security check
+    if not user.is_student:
+        return HttpResponseForbidden("You are not allowed to view this page")
+
+    return render(request, "students/student-profile.html", {
+        "student": user
+    })

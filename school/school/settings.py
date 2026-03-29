@@ -136,3 +136,7 @@ AUTHENTICATION_BACKENDS = (
 ) 
 LOGIN_URL = '/authentication/login/' 
 LOGIN_REDIRECT_URL = '/dashboard/' 
+
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+DEFAULT_FROM_EMAIL = "noreply@preskool.com"

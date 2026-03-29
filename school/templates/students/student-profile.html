@@ -1,0 +1,52 @@
+{% extends "Home/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'assets/css/student-profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="student-profile-wrapper">
+    <div class="card student-profile-card">
+
+        <div class="student-profile-header">
+            <img src="{% static 'assets/img/default-avatar.png' %}"
+                 class="student-profile-avatar"
+                 alt="Student Avatar">
+
+            <div class="student-profile-name">
+                {{ student.first_name }} {{ student.last_name }}
+            </div>
+            <div class="student-profile-role">
+                Student
+            </div>
+        </div>
+
+        <div class="student-profile-body">
+            <div class="student-info-row">
+                <span class="student-info-label">Username</span>
+                <span class="student-info-value">{{ student.username }}</span>
+            </div>
+
+            <div class="student-info-row">
+                <span class="student-info-label">Email</span>
+                <span class="student-info-value">{{ student.email }}</span>
+            </div>
+
+            <div class="student-info-row">
+                <span class="student-info-label">Joined</span>
+                <span class="student-info-value">
+                    {{ student.date_joined|date:"d M Y" }}
+                </span>
+            </div>
+
+            <div class="student-profile-actions">
+                <a href="#" class="btn btn-primary">
+                    Edit Profile
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
