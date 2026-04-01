@@ -15,7 +15,9 @@
                      </div>
                      <div class="col-auto text-right float-right ml-auto">
                         <a href="#" class="btn btn-outline-primary mr-2"><i class="fas fa-download"></i> Download</a>
+                        {% if request.user.is_admin %}
                         <a href="{% url 'add_departement' %}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                        {% endif %}
                      </div>
                   </div>
                </div>
@@ -30,7 +32,9 @@
                                        <th>ID</th>
                                        <th>Name (Code)</th>
                                        <th>Description</th>
+                                       {% if request.user.is_admin %}
                                        <th class="text-right">Action</th>
+                                       {% endif %}
                                     </tr>
                                  </thead>
                                  <tbody>
@@ -44,6 +48,7 @@
                                        </td>
                                        <td>{{ departement.description }}</td>
                                        <td class="text-right">
+                                          {% if request.user.is_admin %}
                                           <div class="actions">
                                              <a href="{% url 'edit_departement' departement.id %}" class="btn btn-sm bg-success-light mr-2">
                                                  <i class="fas fa-pen"></i>
@@ -55,6 +60,7 @@
                                                  </button>
                                              </form>
                                          </div>
+                                         {% endif %}
                                        </td>
                                     </tr>
                                     {% endfor %}

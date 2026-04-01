@@ -3,12 +3,24 @@ from .models import Teacher
 from departement.models import Departement
 from subject.models import Subject
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required, user_passes_test
 
+def is_teacher(user):
+    return user.is_teacher
+def is_student(user):
+    return user.is_student
+def is_admin(user):
+    return user.is_admin
+def is_admin_or_teacher(user):
+    return user.is_authenticated and (user.is_admin or user.is_teacher)
 
 # Create your views here.
+@login_required
 def teacher_dashboard(request):
     return render(request, 'teachers/teacher-dashboard.html')
 
+@login_required
+@user_passes_test(is_admin)
 def add_teacher(request):
     if request.method == 'POST' :
         first_name = request.POST.get('first_name') 
@@ -48,17 +60,23 @@ def add_teacher(request):
         context = {'departements_list': departements_list,'subjects_list':subjects_list}
         return render(request, 'teachers/add-teacher.html', context)
 
+@login_required
+@user_passes_test(is_admin_or_teacher)
 def teacher_list(request):
     teacher_list = Teacher.objects.all()
     context = {'teacher_list' : teacher_list}
     return render(request, 'teachers/teachers.html', context)
 
+@login_required
+@user_passes_test(is_admin)
 def view_teacher(request, teacher_id):
     teacher = Teacher.objects.get(id = teacher_id)
     teacher_subjects = teacher.subjects.all()
     context = {'teacher': teacher, 'teacher_subjects': teacher_subjects}
     return render(request, 'teachers/teacher-details.html', context)
 
+@login_required
+@user_passes_test(is_admin)
 def edit_teacher(request, teacher_id): 
     teacher = Teacher.objects.get(id = teacher_id)
     departements_list = Departement.objects.all()
@@ -94,6 +112,9 @@ def edit_teacher(request, teacher_id):
     else:
         return render(request, 'teachers/edit-teacher.html', context)
     
+
+@login_required
+@user_passes_test(is_admin)
 def delete_teacher(request, teacher_id):
     teacher = Teacher.objects.get(id = teacher_id)
     if request.method == 'POST':

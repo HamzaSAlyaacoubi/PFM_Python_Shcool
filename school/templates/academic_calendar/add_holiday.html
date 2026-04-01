@@ -1,0 +1,78 @@
+{% extends 'Home/base.html' %}
+{% block body %}
+
+<div class="page-wrapper">
+<div class="content container-fluid">
+
+<div class="page-header">
+<div class="row">
+<div class="col">
+<h3 class="page-title">Add Holiday</h3>
+<ul class="breadcrumb">
+<li class="breadcrumb-item"><a href="{% url 'holiday_list' %}">Holidays</a></li>
+<li class="breadcrumb-item active">Add Holiday</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-12">
+<div class="card">
+<div class="card-body">
+
+<form method="POST">
+{% csrf_token %}
+
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+<label>Holiday Name</label>
+<input type="text" name="title" class="form-control" required>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="form-group">
+<label>Start Date</label>
+<input type="date" name="start_date" class="form-control" required>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="form-group">
+<label>End Date</label>
+<input type="date" name="end_date" class="form-control" required>
+</div>
+</div>
+
+<div class="col-md-12">
+<div class="form-group">
+<label>Description</label>
+<textarea name="description" class="form-control"></textarea>
+</div>
+</div>
+
+<div class="col-md-12">
+<div class="form-group">
+<label>
+<input type="checkbox" name="is_school_closed" checked>
+ School Closed
+</label>
+</div>
+</div>
+</div>
+
+<button type="submit" class="btn btn-primary">Save Holiday</button>
+
+</form>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+{% endblock %}
