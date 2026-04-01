@@ -1,0 +1,118 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+
+{% block body %}
+
+<div class="page-wrapper">
+    <div class="content container-fluid">
+
+        <!-- PAGE HEADER -->
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Holidays</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'dashboard' %}">Dashboard</a>
+                        </li>
+                        <li class="breadcrumb-item active">Holidays</li>
+                    </ul>
+                </div>
+
+                <div class="col-auto text-right float-right ml-auto">
+                    <a href="#" class="btn btn-outline-primary mr-2">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                    {% if request.user.is_admin %}
+                    <a href="{% url 'add_holiday' %}" class="btn btn-primary">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <!-- /PAGE HEADER -->
+
+        <!-- TABLE -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card card-table">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-center mb-0 datatable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Holiday Name</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Status</th>
+                                        {% if request.user.is_admin %}
+                                        <th class="text-right">Action</th>
+                                        {% endif %}
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    {% for holiday in holidays %}
+                                    <tr>
+                                        <td>{{ holiday.id }}</td>
+
+                                        <td>
+                                            <h2 class="table-avatar">
+                                                {{ holiday.title }}
+                                            </h2>
+                                        </td>
+
+                                        <td>{{ holiday.start_date|date:"d M Y" }}</td>
+                                        <td>{{ holiday.end_date|date:"d M Y" }}</td>
+
+                                        <td>
+                                            {% if holiday.is_school_closed %}
+                                                <span class="badge badge-danger">School Closed</span>
+                                            {% else %}
+                                                <span class="badge badge-success">School Open</span>
+                                            {% endif %}
+                                        </td>
+
+                                        {% if request.user.is_admin %}
+                                        <td class="text-right">
+                                            <div class="actions">
+                                                <a href="{% url 'edit_holiday' holiday.id %}"
+                                                   class="btn btn-sm bg-success-light mr-2">
+                                                    <i class="fas fa-pen"></i>
+                                                </a>
+
+                                                <form action="{% url 'delete_holiday' holiday.id %}"
+                                                      method="POST"
+                                                      style="display:inline;">
+                                                    {% csrf_token %}
+                                                    <button type="submit"
+                                                            class="btn btn-sm bg-danger-light"
+                                                            onclick="return confirm('Are you sure?');">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /TABLE -->
+
+    </div>
+
+    <footer>
+        <p>Copyright © 2020 Dreamguys.</p>
+    </footer>
+</div>
+
+{% endblock %}

@@ -2,10 +2,19 @@ from django.shortcuts import render, redirect
 from .models import Subject
 from departement.models import Departement
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required, user_passes_test
 
+def is_teacher(user):
+    return user.is_teacher
+def is_student(user):
+    return user.is_student
+def is_admin(user):
+    return user.is_admin
 
 # Create your views here.
 
+@login_required
+@user_passes_test(is_teacher)
 def add_subject(request):
     if request.method == 'POST' :
         name = request.POST.get('name') 
@@ -29,11 +38,14 @@ def add_subject(request):
         context = {'departements_list' : departements_list}
         return render(request, 'subject/add-subject.html', context)
 
+@login_required
 def subject_list(request):
     subjects_list = Subject.objects.all()
     context = {'subjects_list' : subjects_list}
     return render(request, 'subject/subjects.html', context)
 
+@login_required
+@user_passes_test(is_teacher)
 def edit_subject(request, subject_id): 
     subject = Subject.objects.get(id = subject_id)
     departements_list = Departement.objects.all()
@@ -56,7 +68,9 @@ def edit_subject(request, subject_id):
         return redirect('subject_list')
     else:
         return render(request, 'subject/edit-subject.html', context)
-    
+
+@login_required
+@user_passes_test(is_teacher)  
 def delete_subject(request, subject_id):
     subject = Subject.objects.get(id = subject_id)
     if request.method == 'POST':

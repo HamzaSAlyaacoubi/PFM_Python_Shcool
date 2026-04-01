@@ -2,15 +2,26 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse 
 from .models import Student, Parent 
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden
+from django.contrib.auth.decorators import login_required, user_passes_test
 
- 
+def is_teacher(user):
+    return user.is_teacher
+def is_student(user):
+    return user.is_student
+def is_admin(user):
+    return user.is_admin
+def is_admin_or_teacher(user):
+    return user.is_authenticated and (user.is_admin or user.is_teacher)
+
+@login_required
 def student_list(request): 
     student_list = Student.objects.all()
     context = {'student_list': student_list}
     return render(request, 'students/students.html', context) 
- 
+
+@login_required
+@user_passes_test(is_admin_or_teacher)
 def add_student(request): 
     if request.method == 'POST': 
         # Récupérer les données de l'étudiant 
@@ -72,7 +83,10 @@ def add_student(request):
     
     else: 
         return render(request, 'students/add-student.html')
- 
+
+
+@login_required
+@user_passes_test(is_admin_or_teacher)
 def edit_student(request, student_id): 
     student = Student.objects.get(id=student_id)
     parent = student.parent
@@ -116,10 +130,15 @@ def edit_student(request, student_id):
     else:
         return render(request, 'students/edit-student.html', {'student': student, 'parent': parent})
 
+
+@login_required
+@user_passes_test(is_admin_or_teacher)
 def view_student(request, student_id): 
     student = Student.objects.get(id=student_id)
     return render(request, 'students/student-details.html', {'student': student}) 
  
+@login_required
+@user_passes_test(is_admin_or_teacher)
 def delete_student(request, student_id): 
     student = Student.objects.get(id=student_id)
     if request.method == 'POST':
@@ -127,6 +146,8 @@ def delete_student(request, student_id):
         return redirect('student_list')
 
 
+@login_required
+@user_passes_test(is_admin_or_teacher)
 def student_profile_view(request):
     user = request.user
 

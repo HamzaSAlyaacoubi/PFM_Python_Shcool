@@ -1,0 +1,38 @@
+{% extends 'Home/base.html' %}
+{% block body %}
+
+<div class="page-wrapper">
+<div class="content container-fluid">
+
+<h3 class="page-title">Add Exam</h3>
+
+<div class="card">
+<div class="card-body">
+
+<form method="POST">
+{% csrf_token %}
+
+<input class="form-control mb-3" name="name" placeholder="Exam Name">
+<input class="form-control mb-3" name="subject" placeholder="Subject">
+
+<input type="date" class="form-control mb-3" name="exam_date">
+<input type="time" class="form-control mb-3" name="start_time">
+<input type="time" class="form-control mb-3" name="end_time">
+
+<select class="form-control mb-3" name="teacher">
+{% for t in teachers %}
+<option value="{{ t.id }}">{{ t }}</option>
+{% endfor %}
+</select>
+
+<button class="btn btn-primary">Save</button>
+
+</form>
+
+</div>
+</div>
+
+</div>
+</div>
+
+{% endblock %}
