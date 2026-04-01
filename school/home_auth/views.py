@@ -47,7 +47,7 @@ def signup_view(request):
 
         elif role == "admin":
             user.is_admin = True
-        user.is_student = False
+            user.is_student = False
 
 
         user.save() 
