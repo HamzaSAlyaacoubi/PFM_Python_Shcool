@@ -1,6 +1,7 @@
 from django.db import models
 from student.models import Student   # adapt if needed
-from teacher.models import Teacher   # adapt if needed
+from teacher.models import Teacher # adapt if needed
+from departement.models import Departement
 
 
 class Exam(models.Model):
@@ -9,7 +10,18 @@ class Exam(models.Model):
     exam_date = models.DateField()
     start_time = models.TimeField()
     end_time = models.TimeField()
-    teacher = models.ForeignKey(Teacher, on_delete=models.SET_NULL, null=True)
+    teacher = models.ForeignKey(
+        Teacher,
+        on_delete=models.CASCADE,
+        null=False,
+        blank=False,
+    )
+    departement = models.ForeignKey(
+        Departement,
+        on_delete=models.CASCADE,
+        null=False,
+        blank=False,
+    )
 
     def __str__(self):
         return f"{self.name} - {self.subject}"

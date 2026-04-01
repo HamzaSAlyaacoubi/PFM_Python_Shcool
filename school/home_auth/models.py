@@ -7,6 +7,8 @@ from django.conf import settings
 import uuid
 from django.utils.crypto import get_random_string
 from django.utils import timezone
+from student.models import Student
+from teacher.models import Teacher
 
 class CustomUser(AbstractUser):
     username = models.CharField(max_length=100, unique=True)
@@ -16,6 +18,20 @@ class CustomUser(AbstractUser):
     first_name = models.CharField(max_length=30, blank=True)
     last_name = models.CharField(max_length=30, blank=True)
     date_joined = models.DateTimeField(auto_now_add=True)
+    student = models.ForeignKey(
+        Student,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name='studentUser'
+    )
+    teacher = models.ForeignKey(
+        Teacher,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name='teacherUser'
+    )
     
        # Fields for user roles
     is_student = models.BooleanField(default=True)

@@ -14,7 +14,7 @@ def is_admin(user):
 # Create your views here.
 
 @login_required
-@user_passes_test(is_teacher)
+@user_passes_test(is_admin)
 def add_subject(request):
     if request.method == 'POST' :
         name = request.POST.get('name') 

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Teacher
 from departement.models import Departement
+from home_auth.models import CustomUser
 from subject.models import Subject
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
@@ -49,6 +50,17 @@ def add_teacher(request):
             mobile_number=mobile_number,
             departement= departement, 
             teacher_image=teacher_image, 
+        )
+        
+        CustomUser.objects.create_user(
+            username= f"{first_name}.{last_name}@faculty.com".lower(),
+            email= f"{first_name}.{last_name}@faculty.com".lower(),
+            teacher=teacher,
+            first_name= first_name,
+            last_name= last_name,
+            is_student=False,
+            is_teacher=True,
+            password='teacher',
         )
         
         teacher.subjects.set(subjects)

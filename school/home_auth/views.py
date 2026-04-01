@@ -63,7 +63,7 @@ def login_view(request):
         password = request.POST['password'] 
  
         user = authenticate(request, username=email, 
-                            password=password) 
+                                     password=password) 
         if user is not None: 
             login(request, user) 
             messages.success(request, 'Login successful!') 

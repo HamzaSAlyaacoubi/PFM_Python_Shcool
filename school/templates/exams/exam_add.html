@@ -13,18 +13,27 @@
 <form method="POST">
 {% csrf_token %}
 
+<label for="name">Exam Name</label>
 <input class="form-control mb-3" name="name" placeholder="Exam Name">
-<input class="form-control mb-3" name="subject" placeholder="Subject">
+<label for="subject">Subject</label>
+<select class="form-control" name="subject_id">
+    <option value="">Select Subject</option>
+    {% for subject in subjects_list %}
+    <option value="{{subject.id}}">{{subject.name}}</option>
+    {% endfor %}
+</select>
 
+<label for="exam_date">Date</label>
 <input type="date" class="form-control mb-3" name="exam_date">
+<label for="start_time">Start Time</label>
 <input type="time" class="form-control mb-3" name="start_time">
+<label for="end_time">End Time</label>
 <input type="time" class="form-control mb-3" name="end_time">
 
-<select class="form-control mb-3" name="teacher">
-{% for t in teachers %}
-<option value="{{ t.id }}">{{ t }}</option>
-{% endfor %}
-</select>
+<input type="text" value="{{ request.user.id }}" class="form-control mb-3" name="teahcer">
+
+
+
 
 <button class="btn btn-primary">Save</button>
 

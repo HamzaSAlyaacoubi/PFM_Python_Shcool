@@ -3,6 +3,7 @@ from django.contrib import messages
 from .models import Exam, ExamResult
 from student.models import Student
 from teacher.models import Teacher
+from subject.models import Subject
 
 from django.contrib.auth.decorators import login_required, user_passes_test
 
@@ -24,6 +25,12 @@ def exam_list(request):
 @user_passes_test(is_admin_or_teacher)
 def add_exam(request):
     teachers = Teacher.objects.all()
+    subjects_list = Subject.objects.all()
+    context = {
+        'teachers' : teachers,
+        'subjects_list': subjects_list
+    }
+    
 
     if request.method == 'POST':
         Exam.objects.create(
@@ -37,13 +44,19 @@ def add_exam(request):
         messages.success(request, "Exam added successfully")
         return redirect('exam_list')
 
-    return render(request, 'exams/exam_add.html', {'teachers': teachers})
+    return render(request, 'exams/exam_add.html', context)
 
 @login_required
 @user_passes_test(is_admin_or_teacher)
 def edit_exam(request, id):
     exam = get_object_or_404(Exam, id=id)
     teachers = Teacher.objects.all()
+    subjects_list = Subject.objects.all()
+    context = {
+        'teachers' : teachers,
+        'subjects_list': subjects_list,
+        'exam' : exam
+    }
 
     if request.method == 'POST':
         exam.name = request.POST['name']
@@ -57,7 +70,7 @@ def edit_exam(request, id):
         messages.success(request, "Exam updated")
         return redirect('exam_list')
 
-    return render(request, 'exams/exam_edit.html', {'exam': exam, 'teachers': teachers})
+    return render(request, 'exams/exam_edit.html', context)
 
 @login_required
 @user_passes_test(is_admin_or_teacher)

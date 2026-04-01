@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect 
 from django.http import HttpResponse 
 from .models import Student, Parent 
+from home_auth.models import CustomUser
+from departement.models import Departement
 from django.contrib import messages
 from django.http import HttpResponseForbidden
 from django.contrib.auth.decorators import login_required, user_passes_test
@@ -36,6 +38,12 @@ def add_student(request):
         admission_number = request.POST.get('admission_number') 
         section = request.POST.get('section') 
         student_image = request.FILES.get('student_image') 
+        
+        departement_id = request.POST.get('departement_id')
+        if (departement_id):
+            departement = Departement.objects.get(id = departement_id)
+        else :
+            departement = None
  
         # Récupérer les données du parent 
         father_name = request.POST.get('father_name') 
@@ -75,14 +83,27 @@ def add_student(request):
             admission_number=admission_number, 
             section=section, 
             student_image=student_image, 
+            departement= departement, 
             parent=parent 
+        )
+        
+        CustomUser.objects.create_user(
+            username= f"{first_name}.{last_name}@faculty.com".lower(),
+            email= f"{first_name}.{last_name}@faculty.com".lower(),
+            student=student,
+            first_name= first_name,
+            last_name= last_name,
+            is_student=True,
+            password='student',
         )
 
         messages.success(request, 'Student added Successfully') 
         return redirect('student_list')
     
     else: 
-        return render(request, 'students/add-student.html')
+        departements_list = Departement.objects.all()
+        context = {'departements_list': departements_list}
+        return render(request, 'students/add-student.html', context)
 
 
 @login_required
@@ -90,6 +111,8 @@ def add_student(request):
 def edit_student(request, student_id): 
     student = Student.objects.get(id=student_id)
     parent = student.parent
+    departements_list = Departement.objects.all()
+    context = {'departements_list': departements_list, 'student': student, 'parent': parent}
 
     if request.method == 'POST': 
         # Récupérer les données de l'étudiant 
@@ -104,6 +127,12 @@ def edit_student(request, student_id):
         student.admission_number = request.POST.get('admission_number') 
         student.section = request.POST.get('section') 
         student.student_image = request.FILES.get('student_image') 
+        departement_id = request.POST.get('departement_id')
+
+        if (departement_id):
+            student.departement = Departement.objects.get(id = departement_id)
+        else : 
+            student.departement = None
  
         # Récupérer les données du parent 
         parent.father_name = request.POST.get('father_name') 
@@ -128,11 +157,10 @@ def edit_student(request, student_id):
         messages.success(request, 'Student edited Successfully') 
         return redirect('student_list')
     else:
-        return render(request, 'students/edit-student.html', {'student': student, 'parent': parent})
+        return render(request, 'students/edit-student.html', context)
 
 
 @login_required
-@user_passes_test(is_admin_or_teacher)
 def view_student(request, student_id): 
     student = Student.objects.get(id=student_id)
     return render(request, 'students/student-details.html', {'student': student}) 

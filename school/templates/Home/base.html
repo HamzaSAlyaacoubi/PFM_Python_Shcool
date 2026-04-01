@@ -73,8 +73,11 @@
                            <p class="text-muted mb-0">Administrator</p>
                         </div>
                      </div>
-                     <a class="dropdown-item" href="{% url 'student_profile'%}">My Profile</a>
-                     <a class="dropdown-item" href="inbox.html">Inbox</a>
+                     {% if request.user.is_student %}
+                     <a class="dropdown-item" href="{% url 'view_student' request.user.student.id %}">My Profile</a>
+                     {% endif %}
+                     <a class="dropdown-item" href="">My Profile</a>
+                     <a class="dropdown-item" href="">Inbox</a>
                      <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                   </div>
                </li>
@@ -146,7 +149,16 @@
                      <li class="menu-title">
                         <span>Management</span>
                      </li>
-                     {% if request.is_admin %}
+                     <li>
+                        <a href="{% url 'exam_list'%}"><i class="fas fa-clipboard-list"></i> <span>Exam list</span></a>
+                     </li>
+                     <li>
+                        <a href="{% url 'holiday_list'%}"><i class="fas fa-holly-berry"></i> <span>Holiday</span></a>
+                     </li>
+                     <li>
+                        <a href="time-table.html"><i class="fas fa-table"></i> <span>Time Table</span></a>
+                     </li>
+                     {% if request.user.is_admin %}
                      <li class="submenu">
                         <a href="#"><i class="fas fa-file-invoice-dollar"></i> <span> Accounts</span> <span class="menu-arrow"></span></a>
                         <ul>
@@ -159,21 +171,15 @@
                         </ul>
                      </li>
                      {% endif %}
-                     <li>
-                        <a href="{% url 'holiday_list'%}"><i class="fas fa-holly-berry"></i> <span>Holiday</span></a>
-                     </li>
+                     
                      <li>
                         <a href="fees.html"><i class="fas fa-comment-dollar"></i> <span>Fees</span></a>
                      </li>
-                     <li>
-                        <a href="{% url 'exam_list'%}"><i class="fas fa-clipboard-list"></i> <span>Exam list</span></a>
-                     </li>
+                     
                      <li>
                         <a href="event.html"><i class="fas fa-calendar-day"></i> <span>Events</span></a>
                      </li>
-                     <li>
-                        <a href="time-table.html"><i class="fas fa-table"></i> <span>Time Table</span></a>
-                     </li>
+                     
                      <li>
                         <a href="library.html"><i class="fas fa-book"></i> <span>Library</span></a>
                      </li>
