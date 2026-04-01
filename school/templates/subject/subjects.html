@@ -33,7 +33,9 @@
                                        <th>Name (Code)</th>
                                        <th>Description</th>
                                        <th>Departement</th>
+                                       {% if request.user.is_admin or request.user.is_teacher %}
                                        <th class="text-right">Action</th>
+                                       {% endif %}
                                     </tr>
                                  </thead>
                                  <tbody>
