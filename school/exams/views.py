@@ -106,16 +106,27 @@ def delete_exam(request, id):
 @user_passes_test(is_admin_or_teacher)
 def add_result(request, exam_id):
     exam = get_object_or_404(Exam, id=exam_id)
-    students = Student.objects.all()
+    students = Student.objects.filter(departement = exam.departement)
+    
+    context = {
+        'exam' : exam,
+        'students' : students
+    }
 
-    if request.method == 'POST':
-        ExamResult.objects.create(
-            exam=exam,
-            student_id=request.POST['student'],
-            mark=request.POST['mark'],
-            status=request.POST['status']
-        )
-        messages.success(request, "Result saved")
+    if request.method == "POST":
+        exam_id = request.POST.get("exam_id")
+        exam = Exam.objects.get(id=exam_id)
+
+        for student in students:
+            mark = request.POST.get(f"mark_{student.id}")
+
+            if mark:
+                ExamResult.objects.update_or_create(
+                    exam=exam,
+                    student=student,
+                    defaults={"mark": float(mark)}
+                )
+        messages.success(request, "Notes added successfully")
         return redirect('exam_list')
 
-    return render(request, 'exams/result_add.html', {'exam': exam, 'students': students})
+    return render(request, 'exams/exam_add_results.html', context)

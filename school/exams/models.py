@@ -34,13 +34,19 @@ class Exam(models.Model):
 
 
 class ExamResult(models.Model):
-    exam = models.ForeignKey(Exam, on_delete=models.CASCADE)
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    exam = models.ForeignKey(Exam, on_delete=models.CASCADE, related_name="results")
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="results")
+
     mark = models.FloatField()
     status = models.CharField(
         max_length=10,
         choices=[('PASS', 'Pass'), ('FAIL', 'Fail')]
     )
 
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('exam', 'student')  # 🔥 VERY IMPORTANT
+
     def __str__(self):
-        return f"{self.student} - {self.exam}"
+        return f"{self.student} - {self.exam} ({self.mark})"

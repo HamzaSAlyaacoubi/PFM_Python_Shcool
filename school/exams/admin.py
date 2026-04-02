@@ -6,3 +6,9 @@ from .models import ExamResult
 @admin.register(Exam)
 class ExamAdmin(admin.ModelAdmin):
     list_display = ('id','name', 'exam_date')
+    
+@admin.register(ExamResult)
+class ExamAdmin(admin.ModelAdmin):
+    list_display = ('exam','student', 'mark')
+    
+
