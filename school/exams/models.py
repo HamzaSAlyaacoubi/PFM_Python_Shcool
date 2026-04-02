@@ -2,11 +2,17 @@ from django.db import models
 from student.models import Student   # adapt if needed
 from teacher.models import Teacher # adapt if needed
 from departement.models import Departement
+from subject.models import Subject
 
 
 class Exam(models.Model):
     name = models.CharField(max_length=100)
-    subject = models.CharField(max_length=100)
+    subject = models.ForeignKey(
+        Subject,
+        on_delete=models.CASCADE,
+        null=False,
+        blank=False,
+    )
     exam_date = models.DateField()
     start_time = models.TimeField()
     end_time = models.TimeField()

@@ -4,6 +4,7 @@ from .models import Exam, ExamResult
 from student.models import Student
 from teacher.models import Teacher
 from subject.models import Subject
+from departement.models import Departement
 
 from django.contrib.auth.decorators import login_required, user_passes_test
 
@@ -25,7 +26,7 @@ def exam_list(request):
 @user_passes_test(is_admin_or_teacher)
 def add_exam(request):
     teachers = Teacher.objects.all()
-    subjects_list = Subject.objects.all()
+    subjects_list = request.user.teacher.subjects.all()
     context = {
         'teachers' : teachers,
         'subjects_list': subjects_list
@@ -33,13 +34,23 @@ def add_exam(request):
     
 
     if request.method == 'POST':
+        teacher_id = request.POST['teacher_id']
+        teacher = Teacher.objects.get(id = teacher_id)
+        
+        departement_id = request.POST['departement_id']
+        departement = Departement.objects.get(id = departement_id)
+        
+        subject_id = request.POST['subject_id']
+        subject = Subject.objects.get(id = subject_id)
+        
         Exam.objects.create(
             name=request.POST['name'],
-            subject=request.POST['subject'],
+            subject=subject,
             exam_date=request.POST['exam_date'],
             start_time=request.POST['start_time'],
             end_time=request.POST['end_time'],
-            teacher_id=request.POST['teacher']
+            teacher=teacher,
+            departement=departement,
         )
         messages.success(request, "Exam added successfully")
         return redirect('exam_list')
@@ -49,22 +60,33 @@ def add_exam(request):
 @login_required
 @user_passes_test(is_admin_or_teacher)
 def edit_exam(request, id):
-    exam = get_object_or_404(Exam, id=id)
+    exam = get_object_or_404(Exam, id = id)
     teachers = Teacher.objects.all()
-    subjects_list = Subject.objects.all()
+    subjects_list = request.user.teacher.subjects.all()
     context = {
         'teachers' : teachers,
         'subjects_list': subjects_list,
         'exam' : exam
     }
+    
 
     if request.method == 'POST':
+        teacher_id = request.POST['teacher_id']
+        teacher = Teacher.objects.get(id = teacher_id)
+        
+        departement_id = request.POST['departement_id']
+        departement = Departement.objects.get(id = departement_id)
+        
+        subject_id = request.POST['subject_id']
+        subject = Subject.objects.get(id = subject_id)
+        
         exam.name = request.POST['name']
-        exam.subject = request.POST['subject']
+        exam.subject = subject
         exam.exam_date = request.POST['exam_date']
         exam.start_time = request.POST['start_time']
         exam.end_time = request.POST['end_time']
-        exam.teacher_id = request.POST['teacher']
+        exam.teacher = teacher
+        exam.departement = departement
         exam.save()
 
         messages.success(request, "Exam updated")

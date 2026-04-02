@@ -18,9 +18,21 @@
       <div class="main-wrapper">
          <div class="header">
             <div class="header-left">
-               <a href="" class="logo">
+               {% if request.user.is_admin %}
+               <a href="{%url 'admin_dashboard'%}" class="logo">
                <img src="{%static 'assets/img/logo.png' %}" alt="Logo">
                </a>
+               {% endif %}
+               {% if request.user.is_teacher %}
+               <a href="{%url 'teacher_dashboard'%}" class="logo">
+               <img src="{%static 'assets/img/logo.png' %}" alt="Logo">
+               </a>
+               {% endif %}
+               {% if request.user.is_student %}
+               <a href="{%url 'dashboard'%}" class="logo">
+               <img src="{%static 'assets/img/logo.png' %}" alt="Logo">
+               </a>
+               {% endif %}
                <a href="index.html" class="logo logo-small">
                <img src="{%static 'assets/img/logo-small.png' %}" alt="Logo" width="30" height="30">
                </a>
@@ -61,12 +73,28 @@
                </li>
                <li class="nav-item dropdown has-arrow">
                   <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                  {% if request.user.is_admin %}
                   <span class="user-img"><img class="rounded-circle" src="{%static 'assets/img/profiles/avatar-01.jpg'%}" width="31" alt="Ryan Taylor"></span>
+                  {% endif %}
+                  {% if request.user.is_teacher %}
+                  <span class="user-img"><img class="rounded-circle" src="{% if teacher.teacher_image %}{{ teacher.teacher_image.url }}{% else %}{%static 'assets/img/profiles/user.png'%}{% endif %}" width="31" alt="Ryan Taylor"></span>
+                  {% endif %}
+                  {% if request.user.is_student %}
+                  <span class="user-img"><img class="rounded-circle" src="{% if student.student_image %}{{ student.student_image.url }}{% else %}{%static 'assets/img/profiles/user.png'%}{% endif %}" width="31" alt="Ryan Taylor"></span>
+                  {% endif %}
                   </a>
                   <div class="dropdown-menu">
                      <div class="user-header">
                         <div class="avatar avatar-sm">
+                           {% if request.user.is_admin %}
                            <img src="{%static 'assets/img/profiles/avatar-01.jpg'%}" alt="User Image" class="avatar-img rounded-circle">
+                           {% endif %}
+                           {% if request.user.is_teacher %}
+                           <img src="{% if teacher.teacher_image %}{{ teacher.teacher_image.url }}{% else %}{%static 'assets/img/profiles/user.png'%}{% endif %}" alt="User Image" class="avatar-img rounded-circle">
+                           {% endif %}
+                           {% if request.user.is_student %}
+                           <img src="{% if student.student_image %}{{ student.student_image.url }}{% else %}{%static 'assets/img/profiles/user.png'%}{% endif %}" alt="User Image" class="avatar-img rounded-circle">
+                           {% endif %}
                         </div>
                         <div class="user-text">
                            {% comment %} <h6>{{user.username}}</h6> {% endcomment %}

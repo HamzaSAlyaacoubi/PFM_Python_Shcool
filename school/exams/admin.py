@@ -5,4 +5,4 @@ from .models import ExamResult
 # Register your models here.
 @admin.register(Exam)
 class ExamAdmin(admin.ModelAdmin):
-    list_display = ('name', 'exam_date')
+    list_display = ('id','name', 'exam_date')
