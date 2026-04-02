@@ -2,10 +2,17 @@
 {% load static %}
 {% block body %}
    
-
+         
          <div class="page-wrapper">
             <div class="content container-fluid">
                <div class="page-header">
+                  {% if messages %}
+                  <div class="alert alert-info">
+                     {% for message in messages %}
+                        <p>{{ message }}</p>
+                     {% endfor %}
+                  </div>
+                  {% endif %}
                   <div class="row">
                      <div class="col-sm-12">
                         <h3 class="page-title">Welcome Admin {{request.user.first_name}}!</h3>
@@ -24,7 +31,7 @@
                                  <i class="fas fa-user-graduate"></i>
                               </div>
                               <div class="db-info">
-                                 <h3>50055</h3>
+                                 <h3>{{students_number}}</h3>
                                  <h6>Students</h6>
                               </div>
                            </div>
@@ -54,7 +61,7 @@
                                  <i class="fas fa-building"></i>
                               </div>
                               <div class="db-info">
-                                 <h3>30+</h3>
+                                 <h3>{{departements_number}}+</h3>
                                  <h6>Department</h6>
                               </div>
                            </div>

@@ -89,7 +89,7 @@ def edit_exam(request, id):
         exam.departement = departement
         exam.save()
 
-        messages.success(request, "Exam updated")
+        messages.success(request, "Exam updated successfully")
         return redirect('exam_list')
 
     return render(request, 'exams/exam_edit.html', context)
@@ -99,7 +99,7 @@ def edit_exam(request, id):
 def delete_exam(request, id):
     exam = get_object_or_404(Exam, id=id)
     exam.delete()
-    messages.success(request, "Exam deleted")
+    messages.success(request, "Exam deleted successfully")
     return redirect('exam_list')
 
 @login_required

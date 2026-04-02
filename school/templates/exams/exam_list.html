@@ -5,13 +5,20 @@
 
 <div class="page-wrapper">
 <div class="content container-fluid">
+    {% if messages %}
+    <div class="alert alert-info">
+       {% for message in messages %}
+          <p>{{ message }}</p>
+       {% endfor %}
+    </div>
+    {% endif %}
 
 <div class="page-header">
 <div class="row align-items-center">
 <div class="col">
 <h3 class="page-title">Exams</h3>
 <ul class="breadcrumb">
-<li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+<li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
 <li class="breadcrumb-item active">Exams</li>
 </ul>
 </div>
@@ -19,12 +26,13 @@
 <div class="col-auto text-right ml-auto">
 {% if request.user.is_teacher %}
 <a href="{% url 'add_exam' %}" class="btn btn-primary">
-{% endif %}
-<i class="fas fa-plus"></i>
+    <i class="fas fa-plus"></i>
 </a>
+{% endif %}
 </div>
 </div>
 </div>
+
 
 <div class="card card-table">
 <div class="card-body">
@@ -36,7 +44,10 @@
 <th>Name</th>
 <th>Subject</th>
 <th>Date</th>
+<th>Time</th>
+{% if not request.user.is_teacher %}
 <th>Teacher</th>
+{% endif %}
 {% if request.user.is_teacher %}
 <th class="text-right">Action</th>
 {% endif %}
@@ -45,12 +56,16 @@
 
 <tbody>
 {% for exam in exams %}
+{% if request.user.student.departement == exam.departement or request.user.is_teacher or request.user.is_admin %}
 <tr>
 <td>{{ exam.name }}</td>
 <td>{{ exam.subject }}</td>
 <td>{{ exam.exam_date }}</td>
+<td>{{ exam.start_time|time:"H:i" }} -> {{exam.end_time|time:"H:i"}}</td>
+{% if not request.user.is_teacher %}
 <td>{{ exam.teacher }}</td>
-{% if request.user.is_teacher %}
+{% endif %}
+{% if request.user.is_teacher and request.user.teacher == exam.teacher %}
 <td class="text-right">
 <a href="{% url 'add_result' exam.id %}" class="btn btn-sm bg-info-light mr-2">
 <i class="fas fa-clipboard"></i>
@@ -67,6 +82,7 @@
 </form>
 </td>
 </tr>
+{% endif %}
 {% endfor %}
 </tbody>
 

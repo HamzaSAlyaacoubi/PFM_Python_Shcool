@@ -1,6 +1,13 @@
 {% extends 'Home/base.html' %} {% load static %} {% block body %}
 <div class="page-wrapper">
     <div class="content container-fluid">
+        {% if messages %}
+        <div class="alert alert-info">
+           {% for message in messages %}
+              <p>{{ message }}</p>
+           {% endfor %}
+        </div>
+        {% endif %}
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col">
@@ -12,6 +19,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">

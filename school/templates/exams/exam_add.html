@@ -4,6 +4,13 @@
 
 <div class="page-wrapper">
 <div class="content container-fluid">
+    {% if messages %}
+    <div class="alert alert-info">
+       {% for message in messages %}
+          <p>{{ message }}</p>
+       {% endfor %}
+    </div>
+    {% endif %}
 
 <h3 class="page-title">Add Exam</h3>
 
@@ -14,9 +21,9 @@
 {% csrf_token %}
 
 <label for="name">Exam Name</label>
-<input class="form-control mb-3" name="name" placeholder="Exam Name">
+<input class="form-control mb-3" name="name" placeholder="Exam Name" required>
 <label for="subject">Subject</label>
-<select class="form-control" name="subject_id">
+<select class="form-control" name="subject_id" required>
     <option value="">Select Subject</option>
     {% for subject in subjects_list %}
     <option value="{{subject.id}}">{{subject.name}}</option>
@@ -24,11 +31,11 @@
 </select>
 
 <label for="exam_date">Date</label>
-<input type="date" class="form-control mb-3" name="exam_date">
+<input type="date" class="form-control mb-3" name="exam_date" required>
 <label for="start_time">Start Time</label>
-<input type="time" class="form-control mb-3" name="start_time">
+<input type="time" class="form-control mb-3" name="start_time" required>
 <label for="end_time">End Time</label>
-<input type="time" class="form-control mb-3" name="end_time">
+<input type="time" class="form-control mb-3" name="end_time" required>
 
 <label for="teacher">Teacher Name</label>
 <input type="text" value="{{ request.user.teacher.first_name }} {{request.user.teacher.last_name}}" readonly class="form-control mb-3" name="teacher_name">
