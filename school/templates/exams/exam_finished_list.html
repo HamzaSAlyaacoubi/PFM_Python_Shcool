@@ -58,7 +58,7 @@
 {% for exam in exams %}
 {% if request.user.student.departement == exam.departement or request.user.is_teacher or request.user.is_admin %}
 <tr>
-<td>{{ exam.name }}</td>
+<td><h2><a href="{% url 'exam_results' exam.id %}">{{ exam.name }}</a></h2></td>
 <td>{{ exam.subject }}</td>
 <td>{{ exam.exam_date }}</td>
 <td>{{ exam.start_time|time:"H:i" }} -> {{exam.end_time|time:"H:i"}}</td>

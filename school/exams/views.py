@@ -112,6 +112,9 @@ def delete_exam(request, id):
 def add_result(request, exam_id):
     exam = get_object_or_404(Exam, id=exam_id)
     students = Student.objects.filter(departement = exam.departement)
+    for student in students:
+        result = ExamResult.objects.filter(student=student, exam=exam).first()
+        student.result = result
     
     context = {
         'exam' : exam,
@@ -155,3 +158,15 @@ def not_finish_exam(request, exam_id):
     
     messages.success(request, 'Exam Not Finished')
     return redirect('exam_finished_list')
+
+@login_required
+def exam_results(request, exam_id):
+    exam = get_object_or_404(Exam, id = exam_id)
+    exam_results = ExamResult.objects.filter(exam = exam)
+    students = Student.objects.filter(departement = exam.departement)
+    context = {
+        'exam' : exam,
+        'exam_results' : exam_results,
+    }
+    
+    return render(request, 'exams/exam_results.html', context)

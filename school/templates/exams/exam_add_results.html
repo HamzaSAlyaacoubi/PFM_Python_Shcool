@@ -79,9 +79,12 @@
                                                     <td>
                                                         <input type="number"
                                                                step="0.1"
+                                                               min="0"
+                                                               max="20"
                                                                class="form-control"
                                                                name="mark_{{ student.id }}"
                                                                placeholder="Enter mark"
+                                                               value="{{student.result.mark|default:''}}"
                                                                required>
                                                     </td>
                                                 </tr>

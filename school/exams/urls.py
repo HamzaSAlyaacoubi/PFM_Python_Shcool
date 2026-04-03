@@ -10,4 +10,6 @@ urlpatterns = [
     path('result/add/<str:exam_id>/', views.add_result, name='add_result'),
     path('finished/<str:exam_id>/', views.finish_exam, name='finish_exam'),
     path('notFinished/<str:exam_id>/', views.not_finish_exam, name='not_finish_exam'),
+    path('<str:exam_id>/results', views.exam_results, name='exam_results'),
+    
 ]
