@@ -1,0 +1,980 @@
+[
+  {
+    "model": "sessions.session",
+    "pk": "8ex2tdbmkn7p5xqufjsqb0bsdwievn0v",
+    "fields": {
+      "session_data": ".eJxVjEsOwiAUAO_y1obwLdCle89AHjyQqoGktCvj3U2TLnQ7M5k3BNy3GvaR17AQzGDh8ssipmduh6AHtntnqbdtXSI7EnbawW6d8ut6tn-DiqPCDFymLK0npMRJGYk6IVcyiyiQnHHO8wmzUQ6LUJbKpKMqVmmPjheDBJ8v8PM4KA:1w8mED:oSH_gORq3x-LdTZUfYwaQ-klvvP3rhQfZsyLKlF_F2Y",
+      "expire_date": "2026-04-17T21:38:57.467Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "pxubvl59t1c43t4si2cr1poo8y645sm1",
+    "fields": {
+      "session_data": ".eJxVjEsOgjAUAO_y1qZpaWl5LN17BvI-xaIGEgor490NCQvdzkzmDQPtWxn2mtdhUujBweWXMckzz4fQB833xcgyb-vE5kjMaau5LZpf17P9GxSqBXqQyHZUQkb16FKTU8SmY4fYIXmrEtu29ckG4hgEJWjjgrAbFX2g5ODzBdxHN34:1w6ufL:ZuC66o-86Cx_Sh9c1C3d37X3bov8hPiMAwx2zJnZUsc",
+      "expire_date": "2026-04-12T18:15:15.633Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "yxo4eey141d2ke9576a8cq9bxjjcp8sy",
+    "fields": {
+      "session_data": ".eJxVjDsOwjAQBe-yNbISr72OU9JzhujFHxJAtpRPhbg7ipQC2pnRvGnAvk3DvqZlmCP1pOnyy0aEZyqHiA-Ue1Whlm2ZR3Uk6rSrutWYXtez_RtMWCfqiRG0tRpiO86BBdqakBCTt8YZgdceLbucW5YGLoFzJ2LAjddoHNPnC9c-Nz0:1w84Ny:lLoA9maKbGhaFi-NSFZP-K1kDCBMP1qEFHPrUvKhMAQ",
+      "expire_date": "2026-04-15T22:50:06.055Z"
+    }
+  },
+  {
+    "model": "student.parent",
+    "pk": 1,
+    "fields": {
+      "father_name": "Amine",
+      "father_occupation": "Manager",
+      "father_mobile": "0661060218",
+      "father_email": "amine@gmail.com",
+      "mother_name": "mother",
+      "mother_occupation": "mother",
+      "mother_mobile": "0606060606",
+      "mother_email": "mother@gmail.com",
+      "present_address": "my Adrress",
+      "permanent_address": "Permanent Address"
+    }
+  },
+  {
+    "model": "student.parent",
+    "pk": 2,
+    "fields": {
+      "father_name": "Mohamed",
+      "father_occupation": "Manager",
+      "father_mobile": "0661060218",
+      "father_email": "adamFather@gmail.com",
+      "mother_name": "AdamMother",
+      "mother_occupation": "Mothering",
+      "mother_mobile": "0606060606",
+      "mother_email": "AdamMother@gmail.com",
+      "present_address": "my Adrress",
+      "permanent_address": "Permanent Address"
+    }
+  },
+  {
+    "model": "student.parent",
+    "pk": 3,
+    "fields": {
+      "father_name": "Sami",
+      "father_occupation": "Manager",
+      "father_mobile": "0661060218",
+      "father_email": "adamFather@gmail.com",
+      "mother_name": "Malak",
+      "mother_occupation": "Mothering",
+      "mother_mobile": "0606060606",
+      "mother_email": "AdamMother@gmail.com",
+      "present_address": "my Adrress",
+      "permanent_address": "Permanent Address"
+    }
+  },
+  {
+    "model": "student.parent",
+    "pk": 4,
+    "fields": {
+      "father_name": "Amine",
+      "father_occupation": "Manager",
+      "father_mobile": "0661060218",
+      "father_email": "adamFather@gmail.com",
+      "mother_name": "Halima",
+      "mother_occupation": "Mothering",
+      "mother_mobile": "0606060606",
+      "mother_email": "AdamMother@gmail.com",
+      "present_address": "my Adrress",
+      "permanent_address": "Permanent Address"
+    }
+  },
+  {
+    "model": "student.parent",
+    "pk": 5,
+    "fields": {
+      "father_name": "Mohamed",
+      "father_occupation": "Manager",
+      "father_mobile": "0661060218",
+      "father_email": "adamFather@gmail.com",
+      "mother_name": "AdamMother",
+      "mother_occupation": "Mothering",
+      "mother_mobile": "0606060606",
+      "mother_email": "AdamMother@gmail.com",
+      "present_address": "kljfl;kasjl;kdsaj",
+      "permanent_address": "ald;sj;laskdjfkljsd"
+    }
+  },
+  {
+    "model": "student.parent",
+    "pk": 6,
+    "fields": {
+      "father_name": "Zakaria",
+      "father_occupation": "Manager",
+      "father_mobile": "0661060218",
+      "father_email": "adamFather@gmail.com",
+      "mother_name": "Amal",
+      "mother_occupation": "Mothering",
+      "mother_mobile": "0606060606",
+      "mother_email": "AdamMother@gmail.com",
+      "present_address": "my Address",
+      "permanent_address": "Permanent Address"
+    }
+  },
+  {
+    "model": "student.parent",
+    "pk": 7,
+    "fields": {
+      "father_name": "Anas",
+      "father_occupation": "Manager",
+      "father_mobile": "0661060218",
+      "father_email": "adamFather@gmail.com",
+      "mother_name": "Samia",
+      "mother_occupation": "Mothering",
+      "mother_mobile": "0606060606",
+      "mother_email": "AdamMother@gmail.com",
+      "present_address": "my Address",
+      "permanent_address": "Permanent Address"
+    }
+  },
+  {
+    "model": "student.parent",
+    "pk": 8,
+    "fields": {
+      "father_name": "Youssef",
+      "father_occupation": "Manager",
+      "father_mobile": "0678775474",
+      "father_email": "adamFather@gmail.com",
+      "mother_name": "Zahra",
+      "mother_occupation": "Mothering",
+      "mother_mobile": "0606060606",
+      "mother_email": "AdamMother@gmail.com",
+      "present_address": "my Address",
+      "permanent_address": "Permanent Address"
+    }
+  },
+  {
+    "model": "student.student",
+    "pk": 3,
+    "fields": {
+      "first_name": "Adam",
+      "last_name": "IDZDI",
+      "student_id": "J12345612",
+      "gender": "Male",
+      "date_of_birth": "2005-03-30",
+      "student_class": "IDAI",
+      "joining_date": "2026-03-10",
+      "mobile_number": "0689547521",
+      "admission_number": "21365947",
+      "section": "IDAI",
+      "student_image": "",
+      "parent": 3,
+      "departement": 4
+    }
+  },
+  {
+    "model": "student.student",
+    "pk": 4,
+    "fields": {
+      "first_name": "OMAR",
+      "last_name": "FILALI",
+      "student_id": "J12345611",
+      "gender": "Male",
+      "date_of_birth": "2006-07-20",
+      "student_class": "IDAI",
+      "joining_date": "2026-03-10",
+      "mobile_number": "0689547521",
+      "admission_number": "21365947",
+      "section": "IDAI",
+      "student_image": "",
+      "parent": 4,
+      "departement": 1
+    }
+  },
+  {
+    "model": "student.student",
+    "pk": 6,
+    "fields": {
+      "first_name": "Anas",
+      "last_name": "Bilal",
+      "student_id": "P12343615",
+      "gender": "Male",
+      "date_of_birth": "2005-11-09",
+      "student_class": "IDAI",
+      "joining_date": "2026-03-10",
+      "mobile_number": "0689547521",
+      "admission_number": "21365947",
+      "section": "IDAI",
+      "student_image": "",
+      "parent": 6,
+      "departement": 1
+    }
+  },
+  {
+    "model": "student.student",
+    "pk": 7,
+    "fields": {
+      "first_name": "Ahmed",
+      "last_name": "Arabi",
+      "student_id": "P12343616",
+      "gender": "Male",
+      "date_of_birth": "2006-01-07",
+      "student_class": "IDAI",
+      "joining_date": "2026-03-10",
+      "mobile_number": "0689547521",
+      "admission_number": "21365947",
+      "section": "IDAI",
+      "student_image": "",
+      "parent": 7,
+      "departement": 4
+    }
+  },
+  {
+    "model": "student.student",
+    "pk": 8,
+    "fields": {
+      "first_name": "Alaa",
+      "last_name": "Arabi",
+      "student_id": "P12313616",
+      "gender": "Female",
+      "date_of_birth": "2007-04-02",
+      "student_class": "IDAI",
+      "joining_date": "2026-03-10",
+      "mobile_number": "0689547521",
+      "admission_number": "21365947",
+      "section": "IDAI",
+      "student_image": "",
+      "parent": 8,
+      "departement": 4
+    }
+  },
+  {
+    "model": "home_auth.customuser",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$tXFD4VdOe1Vc5j1SmBVncZ$DGZUVU5b1FjRcikZTacJ+bafKtCqBj1SSB0FS2cop30=",
+      "last_login": "2026-03-29T18:15:15.629Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "username": "laila4@gmail.com",
+      "email": "laila4@gmail.com",
+      "is_authorized": false,
+      "login_token": null,
+      "first_name": "leila",
+      "last_name": "hadile",
+      "date_joined": "2026-03-29T17:20:46.586Z",
+      "student": null,
+      "teacher": null,
+      "is_student": true,
+      "is_admin": false,
+      "is_teacher": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "home_auth.customuser",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$prnt5escJ6YLEPtlIUrGSC$GFz+27MV2JftuR5ZQjXuLwAlIzrrEcvZ2j5RunbPD4s=",
+      "last_login": "2026-04-01T22:50:06.045Z",
+      "is_superuser": true,
+      "is_staff": true,
+      "is_active": true,
+      "username": "adamidz",
+      "email": "adam@gmail.com",
+      "is_authorized": false,
+      "login_token": null,
+      "first_name": "",
+      "last_name": "",
+      "date_joined": "2026-03-29T17:31:41.315Z",
+      "student": null,
+      "teacher": null,
+      "is_student": false,
+      "is_admin": true,
+      "is_teacher": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "home_auth.customuser",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$afcGAowgSbvPbIPQQbaHlq$nOUGIKcFq8ePt7VyLWyD4HXf9BDQ+5pgGj4gQjqxuXs=",
+      "last_login": "2026-03-29T18:12:41.693Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "username": "john4@gmail.com",
+      "email": "john4@gmail.com",
+      "is_authorized": false,
+      "login_token": null,
+      "first_name": "ronny",
+      "last_name": "cold",
+      "date_joined": "2026-03-29T18:12:36.305Z",
+      "student": null,
+      "teacher": null,
+      "is_student": false,
+      "is_admin": true,
+      "is_teacher": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "home_auth.customuser",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$IJbWcwZ5FDmWGUy0dJSfRe$nWF+FoBXkCFI8VdiD3/MGWawtXFvHHwuPkowmCQ6Lfs=",
+      "last_login": "2026-04-01T20:04:23.532Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "username": "teacher@gmail.com",
+      "email": "teacher@gmail.com",
+      "is_authorized": false,
+      "login_token": null,
+      "first_name": "teacher",
+      "last_name": "Soussane",
+      "date_joined": "2026-03-31T19:41:24.840Z",
+      "student": null,
+      "teacher": null,
+      "is_student": false,
+      "is_admin": false,
+      "is_teacher": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "home_auth.customuser",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$TnOc6KLV8dlbWQHmRtgBA1$Eyw6hqhbZaZF7Ew0pqNuE1bjy/D2/ZjltxjTdrjwiVo=",
+      "last_login": "2026-04-03T21:38:57.451Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "username": "admin@gmail.com",
+      "email": "admin@gmail.com",
+      "is_authorized": false,
+      "login_token": null,
+      "first_name": "admin",
+      "last_name": "admin",
+      "date_joined": "2026-04-01T18:12:24.025Z",
+      "student": null,
+      "teacher": null,
+      "is_student": false,
+      "is_admin": true,
+      "is_teacher": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "home_auth.customuser",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$ig60uQT8AOeMat1XYzc2yc$ZFoJbZHN/2KEjcC2iWrpQqfOczrwaP4aMMQ/h5/rBvo=",
+      "last_login": "2026-04-01T18:17:05.867Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "username": "student@gmail.com",
+      "email": "student@gmail.com",
+      "is_authorized": false,
+      "login_token": null,
+      "first_name": "student",
+      "last_name": "student",
+      "date_joined": "2026-04-01T18:16:57.790Z",
+      "student": null,
+      "teacher": null,
+      "is_student": false,
+      "is_admin": false,
+      "is_teacher": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "home_auth.customuser",
+    "pk": 9,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$PitARx0oUAMTIrsRS8LDwl$GridW4uoiwj945M7u03V70ilHvDqACTUtyfyCWlXyvA=",
+      "last_login": "2026-04-01T18:21:01.715Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "username": "student1@gmail.com",
+      "email": "student1@gmail.com",
+      "is_authorized": false,
+      "login_token": null,
+      "first_name": "student1",
+      "last_name": "student1",
+      "date_joined": "2026-04-01T18:20:54.463Z",
+      "student": null,
+      "teacher": null,
+      "is_student": true,
+      "is_admin": false,
+      "is_teacher": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "home_auth.customuser",
+    "pk": 11,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$FP4miKEZ8xroRxLkrqbSbE$RNmAzysF02fXKrPk0PmWFHkXhjvFp90Cy310DV4OkcI=",
+      "last_login": "2026-04-03T10:24:10.139Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "username": "adam.idzdi@faculty.com",
+      "email": "adam.idzdi@faculty.com",
+      "is_authorized": false,
+      "login_token": null,
+      "first_name": "Adam",
+      "last_name": "IDZDI",
+      "date_joined": "2026-04-01T22:20:08.838Z",
+      "student": 3,
+      "teacher": null,
+      "is_student": true,
+      "is_admin": false,
+      "is_teacher": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "home_auth.customuser",
+    "pk": 12,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$2yW04R0ZoBoA2bAmxv17gC$y7F4dZZ9lD1Km4Iz5dZB6crBumhQ1odm3ad5o1T8G+k=",
+      "last_login": "2026-04-02T18:15:29.383Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "username": "omar.filali@faculty.com",
+      "email": "omar.filali@faculty.com",
+      "is_authorized": false,
+      "login_token": null,
+      "first_name": "OMAR",
+      "last_name": "FILALI",
+      "date_joined": "2026-04-01T22:21:20.409Z",
+      "student": 4,
+      "teacher": null,
+      "is_student": true,
+      "is_admin": false,
+      "is_teacher": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "home_auth.customuser",
+    "pk": 13,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$CJaFHxFg2odxBqcsVpNm3L$LabI5JQuew3n08brhHvlueS7Su26pnF3DpWe8qqbuxA=",
+      "last_login": "2026-04-02T23:39:59.160Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "username": "mohamed.bakkali@faculty.com",
+      "email": "mohamed.bakkali@faculty.com",
+      "is_authorized": false,
+      "login_token": null,
+      "first_name": "Mohamed",
+      "last_name": "Bakkali",
+      "date_joined": "2026-04-01T22:39:55.016Z",
+      "student": null,
+      "teacher": 8,
+      "is_student": false,
+      "is_admin": false,
+      "is_teacher": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "home_auth.customuser",
+    "pk": 14,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$QQd0eXpwYTUQyqyPRVMIED$hQ/3af3Extg9oOnw44lPHeBSP2oxH/KmuFXjmxu74CQ=",
+      "last_login": "2026-04-03T10:23:41.522Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "username": "anas.alawi@faculty.com",
+      "email": "anas.alawi@faculty.com",
+      "is_authorized": false,
+      "login_token": null,
+      "first_name": "Anas",
+      "last_name": "Alawi",
+      "date_joined": "2026-04-01T22:49:29.770Z",
+      "student": null,
+      "teacher": 10,
+      "is_student": false,
+      "is_admin": false,
+      "is_teacher": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "home_auth.customuser",
+    "pk": 15,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$yaZLxWpxOjMjktYr2kOG6q$0XGsLSKLBVU8D5wOAeiEXFJe2HBDoGp4uWWKyJekzo0=",
+      "last_login": "2026-04-03T10:13:34.270Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "username": "morad.ayoubi@faculty.com",
+      "email": "morad.ayoubi@faculty.com",
+      "is_authorized": false,
+      "login_token": null,
+      "first_name": "Morad",
+      "last_name": "Ayoubi",
+      "date_joined": "2026-04-01T23:10:21.987Z",
+      "student": null,
+      "teacher": 12,
+      "is_student": false,
+      "is_admin": false,
+      "is_teacher": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "home_auth.customuser",
+    "pk": 18,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$NfDUYjDQjwtAAdFOOJhI4W$inBxPfxW5ataxClyFJ1W5ZNZZsGL3EH3txeaH+OtfKk=",
+      "last_login": null,
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "username": "anas.bilal@faculty.com",
+      "email": "anas.bilal@faculty.com",
+      "is_authorized": false,
+      "login_token": null,
+      "first_name": "Anas",
+      "last_name": "Bilal",
+      "date_joined": "2026-04-02T23:32:02.809Z",
+      "student": 6,
+      "teacher": null,
+      "is_student": true,
+      "is_admin": false,
+      "is_teacher": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "home_auth.customuser",
+    "pk": 19,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$HWiuOAaoMvCCvKrnZxVu0n$mmspFDdkesYyJ+cU2Ap/j9Io2DjRa8Y7ISOq4m3MS7I=",
+      "last_login": null,
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "username": "ahmed.arabi@faculty.com",
+      "email": "ahmed.arabi@faculty.com",
+      "is_authorized": false,
+      "login_token": null,
+      "first_name": "Ahmed",
+      "last_name": "Arabi",
+      "date_joined": "2026-04-02T23:34:21.491Z",
+      "student": 7,
+      "teacher": null,
+      "is_student": true,
+      "is_admin": false,
+      "is_teacher": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "home_auth.customuser",
+    "pk": 20,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$qvg28D5b4G3ndJdpnrp8jC$AVo3fWzYkctEI8WmbHLe9C8jP+9Ij/A0nE3AbUl5u6A=",
+      "last_login": null,
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "username": "alaa.arabi@faculty.com",
+      "email": "alaa.arabi@faculty.com",
+      "is_authorized": false,
+      "login_token": null,
+      "first_name": "Alaa",
+      "last_name": "Arabi",
+      "date_joined": "2026-04-02T23:35:09.535Z",
+      "student": 8,
+      "teacher": null,
+      "is_student": true,
+      "is_admin": false,
+      "is_teacher": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "teacher.teacher",
+    "pk": 8,
+    "fields": {
+      "first_name": "Mohamed",
+      "last_name": "Bakkali",
+      "gender": "Male",
+      "date_of_birth": "1978-12-25",
+      "joining_date": "2009-01-13",
+      "mobile_number": "0636598741",
+      "teacher_image": "",
+      "departement": 3,
+      "subjects": [4]
+    }
+  },
+  {
+    "model": "teacher.teacher",
+    "pk": 10,
+    "fields": {
+      "first_name": "Anas",
+      "last_name": "Alawi",
+      "gender": "Male",
+      "date_of_birth": "1980-05-22",
+      "joining_date": "2008-09-26",
+      "mobile_number": "0736788745",
+      "teacher_image": "",
+      "departement": 4,
+      "subjects": [6, 7]
+    }
+  },
+  {
+    "model": "teacher.teacher",
+    "pk": 12,
+    "fields": {
+      "first_name": "Morad",
+      "last_name": "Ayoubi",
+      "gender": "Male",
+      "date_of_birth": "1977-06-18",
+      "joining_date": "2009-10-09",
+      "mobile_number": "0623598778",
+      "teacher_image": "",
+      "departement": 1,
+      "subjects": [1, 2]
+    }
+  },
+  {
+    "model": "teacher.teacher",
+    "pk": 13,
+    "fields": {
+      "first_name": "Mohamed",
+      "last_name": "Bakkali",
+      "gender": "Male",
+      "date_of_birth": "1990-02-01",
+      "joining_date": "2012-12-15",
+      "mobile_number": "0636598741",
+      "teacher_image": "",
+      "departement": 1,
+      "subjects": []
+    }
+  },
+  {
+    "model": "departement.departement",
+    "pk": 1,
+    "fields": {
+      "name": "MATHEMATICS",
+      "code": "MATH",
+      "description": "MATH SHORT DESCRIPTION OF DEPARTEMENT",
+      "created_at": "2026-03-29"
+    }
+  },
+  {
+    "model": "departement.departement",
+    "pk": 3,
+    "fields": {
+      "name": "PHYSICS ",
+      "code": "PC",
+      "description": "PHISICS LONG DESCRIPTION OF DEPARTEMENT",
+      "created_at": "2026-03-29"
+    }
+  },
+  {
+    "model": "departement.departement",
+    "pk": 4,
+    "fields": {
+      "name": "INFORMATIC AND COMPUTING",
+      "code": "INFO",
+      "description": "INFORMATIC DESCRIPTION DEPARTEMENT LONG",
+      "created_at": "2026-03-29"
+    }
+  },
+  {
+    "model": "subject.subject",
+    "pk": 1,
+    "fields": {
+      "name": "Analyse 1",
+      "code": "An1",
+      "description": "math for analyses beginner",
+      "departement": 1
+    }
+  },
+  {
+    "model": "subject.subject",
+    "pk": 2,
+    "fields": {
+      "name": "Analyse 2",
+      "code": "An2",
+      "description": "math for analyses intermediet",
+      "departement": 1
+    }
+  },
+  {
+    "model": "subject.subject",
+    "pk": 3,
+    "fields": {
+      "name": "Analyse 3",
+      "code": "An3",
+      "description": "math for analyses advence",
+      "departement": 1
+    }
+  },
+  {
+    "model": "subject.subject",
+    "pk": 4,
+    "fields": {
+      "name": "Chimie Mineral",
+      "code": "CM",
+      "description": "chimie des cristall",
+      "departement": 3
+    }
+  },
+  {
+    "model": "subject.subject",
+    "pk": 6,
+    "fields": {
+      "name": "Python",
+      "code": "PY",
+      "description": "Backend Developement",
+      "departement": 4
+    }
+  },
+  {
+    "model": "subject.subject",
+    "pk": 7,
+    "fields": {
+      "name": "Hyper Text Markup Language",
+      "code": "Html",
+      "description": "Web html",
+      "departement": 4
+    }
+  },
+  {
+    "model": "academic_calendar.holiday",
+    "pk": 1,
+    "fields": {
+      "title": "Fete Universitaire",
+      "start_date": "2026-04-01",
+      "end_date": "2026-04-05",
+      "description": "Une fete nouvelle mois ",
+      "is_school_closed": true,
+      "created_at": "2026-04-02T20:36:09.282Z"
+    }
+  },
+  {
+    "model": "exams.exam",
+    "pk": 1,
+    "fields": {
+      "name": "Controle 1 - Python Backend - IDAI",
+      "subject": 6,
+      "exam_date": "2026-04-02",
+      "start_time": "15:30:00",
+      "end_time": "17:00:00",
+      "is_Finished": true,
+      "teacher": 10,
+      "departement": 4
+    }
+  },
+  {
+    "model": "exams.exam",
+    "pk": 2,
+    "fields": {
+      "name": "Controle 2 - HTML FrontEnd- IDAI",
+      "subject": 7,
+      "exam_date": "2026-04-11",
+      "start_time": "09:30:00",
+      "end_time": "10:30:00",
+      "is_Finished": false,
+      "teacher": 10,
+      "departement": 4
+    }
+  },
+  {
+    "model": "exams.exam",
+    "pk": 3,
+    "fields": {
+      "name": "Controle 1 - Chimie Mineral - S1",
+      "subject": 4,
+      "exam_date": "2026-04-11",
+      "start_time": "14:30:00",
+      "end_time": "16:00:00",
+      "is_Finished": true,
+      "teacher": 8,
+      "departement": 3
+    }
+  },
+  {
+    "model": "exams.exam",
+    "pk": 4,
+    "fields": {
+      "name": "Controle 1 - Chimie Organique - S2",
+      "subject": 4,
+      "exam_date": "2026-04-12",
+      "start_time": "11:30:00",
+      "end_time": "13:00:00",
+      "is_Finished": false,
+      "teacher": 8,
+      "departement": 3
+    }
+  },
+  {
+    "model": "exams.exam",
+    "pk": 5,
+    "fields": {
+      "name": "Controle 1 - Analyse 1 - S1",
+      "subject": 1,
+      "exam_date": "2026-04-15",
+      "start_time": "09:00:00",
+      "end_time": "11:00:00",
+      "is_Finished": true,
+      "teacher": 12,
+      "departement": 1
+    }
+  },
+  {
+    "model": "exams.exam",
+    "pk": 6,
+    "fields": {
+      "name": "Contorle 1 - Analyse 2 - S2",
+      "subject": 2,
+      "exam_date": "2026-04-14",
+      "start_time": "09:00:00",
+      "end_time": "11:00:00",
+      "is_Finished": true,
+      "teacher": 12,
+      "departement": 1
+    }
+  },
+  {
+    "model": "exams.examresult",
+    "pk": 1,
+    "fields": {
+      "exam": 1,
+      "student": 3,
+      "mark": 14.0,
+      "status": "",
+      "created_at": "2026-04-02T23:21:08.262Z"
+    }
+  },
+  {
+    "model": "exams.examresult",
+    "pk": 2,
+    "fields": {
+      "exam": 2,
+      "student": 3,
+      "mark": 15.0,
+      "status": "",
+      "created_at": "2026-04-02T23:35:59.571Z"
+    }
+  },
+  {
+    "model": "exams.examresult",
+    "pk": 3,
+    "fields": {
+      "exam": 2,
+      "student": 7,
+      "mark": 16.0,
+      "status": "",
+      "created_at": "2026-04-02T23:35:59.587Z"
+    }
+  },
+  {
+    "model": "exams.examresult",
+    "pk": 4,
+    "fields": {
+      "exam": 2,
+      "student": 8,
+      "mark": 11.0,
+      "status": "",
+      "created_at": "2026-04-02T23:35:59.601Z"
+    }
+  },
+  {
+    "model": "exams.examresult",
+    "pk": 5,
+    "fields": {
+      "exam": 1,
+      "student": 7,
+      "mark": 16.0,
+      "status": "",
+      "created_at": "2026-04-02T23:37:22.725Z"
+    }
+  },
+  {
+    "model": "exams.examresult",
+    "pk": 6,
+    "fields": {
+      "exam": 1,
+      "student": 8,
+      "mark": 18.0,
+      "status": "",
+      "created_at": "2026-04-02T23:37:22.745Z"
+    }
+  },
+  {
+    "model": "exams.examresult",
+    "pk": 8,
+    "fields": {
+      "exam": 5,
+      "student": 4,
+      "mark": 18.0,
+      "status": "",
+      "created_at": "2026-04-03T10:13:54.476Z"
+    }
+  },
+  {
+    "model": "exams.examresult",
+    "pk": 9,
+    "fields": {
+      "exam": 5,
+      "student": 6,
+      "mark": 12.0,
+      "status": "",
+      "created_at": "2026-04-03T10:13:54.484Z"
+    }
+  },
+  {
+    "model": "exams.examresult",
+    "pk": 10,
+    "fields": {
+      "exam": 6,
+      "student": 4,
+      "mark": 17.0,
+      "status": "",
+      "created_at": "2026-04-03T10:15:52.133Z"
+    }
+  },
+  {
+    "model": "exams.examresult",
+    "pk": 11,
+    "fields": {
+      "exam": 6,
+      "student": 6,
+      "mark": 15.0,
+      "status": "",
+      "created_at": "2026-04-03T10:15:52.144Z"
+    }
+  }
+]
