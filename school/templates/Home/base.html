@@ -186,9 +186,18 @@
                      <li class="menu-title">
                         <span>Management</span>
                      </li>
-                     <li class="{% if request.resolver_match.url_name in 'exam_list add_exam view_exam' %}active{% endif %}">
-                        <a href="{% url 'exam_list'%}" ><i class="fas fa-clipboard-list "></i> <span>Exam list</span></a>
+                     <li class="submenu {% if request.resolver_match.url_name in 'exam_list exam_finished_list add_exam view_exam' %}active{% endif %}">
+                        <a href="#"><i class="fas fa-clipboard"></i> <span> Exams</span> <span class="menu-arrow"></span></a>
+                        <ul>
+                           <li>
+                              <a href="{% url 'exam_list'%}" class="{% if request.resolver_match.url_name in 'exam_list add_exam view_exam' %}active{% endif %}"><i class="fas fa-clipboard-list "></i> <span>Exam list</span></a>
+                            </li>
+                           <li>
+                              <a href="{% url 'exam_finished_list'%}"  class="{% if request.resolver_match.url_name == 'exam_finished_list' %}active{% endif %}"><i class="fas fa-clipboard-check "></i> <span>Exam finished</span></a>
+                            </li>
+                        </ul>
                      </li>
+                     
                      <li class="{% if request.resolver_match.url_name in 'holiday_list add_holiday view_holiday' %}active{% endif %}">
                         <a href="{% url 'holiday_list'%}"><i class="fas fa-holly-berry "></i> <span>Holiday</span></a>
                      </li>

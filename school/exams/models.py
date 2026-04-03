@@ -16,6 +16,7 @@ class Exam(models.Model):
     exam_date = models.DateField()
     start_time = models.TimeField()
     end_time = models.TimeField()
+    is_Finished = models.BooleanField(default=False)
     teacher = models.ForeignKey(
         Teacher,
         on_delete=models.CASCADE,

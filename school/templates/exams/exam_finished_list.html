@@ -67,14 +67,8 @@
 {% endif %}
 {% if request.user.is_teacher and request.user.teacher == exam.teacher %}
 <td class="text-right">
-<a href="{% url 'add_result' exam.id %}" class="btn btn-sm bg-info-light mr-2">
-<i class="fas fa-clipboard"></i>
-</a>
-<a href="{% url 'finish_exam' exam.id %}" class="btn btn-sm btn-success mr-2">
-<i class="fas fa-clipboard-check"></i>
-</a>
-<a href="{% url 'edit_exam' exam.id %}" class="btn btn-sm bg-success-light mr-2">
-<i class="fas fa-pen"></i>
+<a href="{% url 'not_finish_exam' exam.id %}" class="btn btn-sm btn-danger mr-2">
+<i class="fas fa-times"></i>
 </a>
 <form method="POST" action="{% url 'delete_exam' exam.id %}" style="display:inline;">
 {% csrf_token %}

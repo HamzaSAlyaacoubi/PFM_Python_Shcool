@@ -19,8 +19,13 @@ def is_admin_or_teacher(user):
 
 @login_required
 def exam_list(request):
-    exams = Exam.objects.all()
+    exams = Exam.objects.filter(is_Finished = False)
     return render(request, 'exams/exam_list.html', {'exams': exams})
+
+@login_required
+def exam_finished_list(request):
+    exams = Exam.objects.filter(is_Finished = True)
+    return render(request, 'exams/exam_finished_list.html', {'exams': exams})
 
 @login_required
 @user_passes_test(is_admin_or_teacher)
@@ -130,3 +135,23 @@ def add_result(request, exam_id):
         return redirect('exam_list')
 
     return render(request, 'exams/exam_add_results.html', context)
+
+@login_required
+def finish_exam(request, exam_id):
+    exam = get_object_or_404(Exam, id = exam_id)
+    exam.is_Finished = True
+    
+    exam.save()
+    
+    messages.success(request, 'Exam Finished')
+    return redirect('exam_list')
+
+@login_required
+def not_finish_exam(request, exam_id):
+    exam = get_object_or_404(Exam, id = exam_id)
+    exam.is_Finished = False
+    
+    exam.save()
+    
+    messages.success(request, 'Exam Not Finished')
+    return redirect('exam_finished_list')
