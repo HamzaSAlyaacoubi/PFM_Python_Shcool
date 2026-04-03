@@ -61,7 +61,7 @@
                                             </thead>
                                             <tbody>
                                                 {% for exam_res in exam_results %}
-                                                {% if request.user.student == exam_res.student %}
+                                                {% if request.user.is_admin or request.user.is_teacher or request.user.student == exam_res.student %}
                                                 <tr>
                                                     <td>
                                                         {{ exam_res.student.first_name }} {{ exam_res.student.last_name }}
