@@ -1,5 +1,7 @@
 # PFM_Python_Shcool
 
+## 🔗 Lien de video : https://youtu.be/msiY9NEyEyU
+
 ## ⚙️ Instructions d'installation
 
 ### 1. Cloner le projet
