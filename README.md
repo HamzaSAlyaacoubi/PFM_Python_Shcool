@@ -33,4 +33,14 @@ Après les migrations :
 ```bash
 python manage.py loaddata data
 ```
+## 🖋️ Identifiants de test
+### Admin 
+ #### email : admin@gmail.com
+ #### password : jjj
+### Teacher 
+ #### email : anas.alawi@faculty.com
+ #### password : teacher
+### Student 
+ #### email : adam.idzdi@faculty.com
+ #### password : student
 
